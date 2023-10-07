@@ -1,0 +1,36 @@
+<%- include("partials/header.ejs") %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abel&family=Caveat:wght@500&family=EB+Garamond:wght@500&family=PT+Serif:ital@1&display=swap" rel="stylesheet">
+    <title>To-do List</title>
+</head>
+<body class="index">
+    <section id="first">
+    <div class="heading container">
+    <h1><%= new Date().toDateString()%></h1>
+    </div>
+    </section>
+    <section id="do-list">
+    <div class="container box">
+        <% for(var i=0;i<locals.taskLen;i++){ %>
+            <input type="checkbox" id="check">
+            <p id="value"><%= locals.newTask[i] %>
+                <hr />
+            </p>
+            <% } %>
+    <form action="/" method="POST">
+        <div class="textInput">
+       <input type="text" name="newItem" placeholder="New Item" id="input">
+       <button type="submit" class="button">Add</button>
+        </form>
+       </div>
+    </div>
+    </section>
+</body>
+</html><%- include("partials/footer.ejs") %>
